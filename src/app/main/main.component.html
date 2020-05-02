@@ -1,0 +1,27 @@
+<ng-container>
+  <mat-toolbar color="primary" style="justify-content: space-between">
+    <span>
+      <button mat-button (click)="sidenav.toggle()"><span class="material-icons">menu</span></button>
+    Message Encryptor
+    </span>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="false" [fixedTopGap]="0"
+                 [fixedBottomGap]="0">
+      <li class="li"><a routerLink="new"> Encrypt </a></li>
+      <li class="li"><a routerLink="decrypt"> Decrypt </a></li>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="padding: 10px 10px 10px 10px; background-image: url('https://images.idgesg.net/images/article/2018/01/security_internet_network_encryption_privacy_padlock-100745987-large.jpg');">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar color="primary" class="example-footer">
+    <span></span>
+    <span><p style="font-size: 10px">Alexandra Stan @ 342A3</p></span>
+    <span></span>
+  </mat-toolbar>
+</ng-container>
+`

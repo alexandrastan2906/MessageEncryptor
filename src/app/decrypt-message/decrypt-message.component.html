@@ -1,0 +1,42 @@
+<div class="container-login100">
+  <div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+          <h1 style="color: black">Decrypt a message</h1>
+				</span>
+    <hr/>
+    <form class="login100-form validate-form p-b-33 p-t-5" (ngSubmit)="decrypt()" [formGroup]="decryptForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter your message</mat-label>
+        <textarea matInput placeholder="Please enter your message here ..." formControlName="message"></textarea>
+        <mat-error *ngIf="decryptForm.get('message').hasError('required')">
+          Please enter your message!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="standard" class="example-full-width">
+        <mat-label>Please enter your secret</mat-label>
+        <input matInput placeholder="secret" type="password" formControlName="secret">
+        <mat-error *ngIf="decryptForm.get('secret').hasError('required')">
+          Please enter the secret!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter from email:</mat-label>
+        <input matInput placeholder="email@email.com" type="text" formControlName="from">
+        <mat-error *ngIf="decryptForm.get('from').hasError('required')">
+          Please enter the email!
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!decryptForm.valid"
+              style="margin: 0 auto; width: 100%; height: 50px; padding: 2px;">Decrypt
+      </button>
+      <div *ngIf="showErrorMessage">
+        <h1 style="color: #D01547; font-size:16px">Invalid username or password. Please try again</h1>
+      </div>
+    </form>
+    <div *ngIf="message">
+      <hr/>
+      <h3>Your message is : </h3><br/>
+      {{message}}
+    </div>
+  </div>
+</div>
